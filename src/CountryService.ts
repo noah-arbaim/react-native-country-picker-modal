@@ -154,7 +154,7 @@ export const getCountriesAsync = async (
     .filter(isSubregion(subregion))
     .filter(isIncluded(countryCodes))
     .filter(isExcluded(excludeCountries))
-    // .sort((country1, country2) => country1.name.localeCompare(country2.name));
+    .sort((country1, country2) => country1.name.localeCompare(country2.name));
 
     const KR = countries.find(e => e.cca2 === 'KR')
     const US = countries.find(e => e.cca2 === 'US')
