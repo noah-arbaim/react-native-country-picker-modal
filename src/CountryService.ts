@@ -154,6 +154,14 @@ export const getCountriesAsync = async (
     .filter(isSubregion(subregion))
     .filter(isIncluded(countryCodes))
     .filter(isExcluded(excludeCountries))
+    // .sort((country1, country2) => country1.name.localeCompare(country2.name));
+
+    const KR = countries.find(e => e.cca2 === 'KR')
+    const US = countries.find(e => e.cca2 === 'US')
+    countries.splice(countries.findIndex(e => e.cca2 === 'KR'), 1)
+    countries.splice(countries.findIndex(e => e.cca2 === 'US'), 1)
+    countries.unshift(US);
+    countries.unshift(KR);
     
     return countries
 
@@ -218,7 +226,7 @@ export const getLetters = (countries: Country[]) => {
       .map((country: Country) =>
         (country.name as string).substr(0, 1).toLocaleUpperCase(),
       )
-      .sort((l1: string, l2: string) => l1.localeCompare(l2)),
+      // .sort((l1: string, l2: string) => l1.localeCompare(l2)),
   )
 }
 

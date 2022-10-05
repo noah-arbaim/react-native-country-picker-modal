@@ -3,10 +3,10 @@ import { Platform } from 'react-native'
 import { getHeightPercent } from './ratio'
 
 export const DEFAULT_THEME = {
-  primaryColor: '#ccc',
-  primaryColorVariant: '#eee',
-  backgroundColor: '#ffffff',
-  onBackgroundTextColor: '#000000',
+  primaryColor: '#222',
+  primaryColorVariant: '#444',
+  backgroundColor: '#000',
+  onBackgroundTextColor: '#fff',
   fontSize: 16,
   fontFamily: Platform.select({
     ios: 'System',
@@ -27,6 +27,14 @@ export const DARK_THEME = {
   onBackgroundTextColor: '#fff'
 }
 export type Theme = Partial<typeof DEFAULT_THEME>
+
+export const WHITE_THEME = {
+  ...DEFAULT_THEME,
+  primaryColor: '#ccc',
+  primaryColorVariant: '#eee',
+  backgroundColor: '#ffffff',
+  onBackgroundTextColor: '#000000',
+};
 
 const { ThemeProvider, useTheme } = createTheming<Theme>(DEFAULT_THEME)
 
